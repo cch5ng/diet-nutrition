@@ -28,7 +28,7 @@ var FoodView = Backbone.View.extend({
     this.render();
   },
   render: function() {
-    $(this.el).append("<form><input type='text' id='searchInp'></form>");
+    $(this.el).append("<form><input type='text' id='search' size='70' onkeypress='return noEnter(event)'><i class='ion ion-search'></i></form>");
   }
 });
 
