@@ -1,3 +1,5 @@
+// js/models/food.js
+
 var app = app || {};
 
 //model
