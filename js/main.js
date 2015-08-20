@@ -1,23 +1,3 @@
-(function($) {
-
-//create model
-// var Food = Backbone.Model.extend({
-	//name: '',
-	//calories: 0,  
-	//defaults: {
-		
-	//},
-	
-//   initialize: function() {
-//     console.log('');
-//   }
-// });
-
-//create collection
-// var FoodList = Backbone.Collection.extend({
-//   model: Food
-// });
-
 //create model view
 var FoodView = Backbone.View.extend({
 	tagName: 'li',
@@ -54,7 +34,7 @@ var FoodView = Backbone.View.extend({
 	searchQueryStr: function() {
 		var queryStr = document.querySelector('#search').value;
 		console.log(queryStr);
-		var queryStr1 = cleanQueryStr(queryStr);
+		var queryStr1 = this.cleanQueryStr(queryStr);
 	  var url = 'https://api.nutritionix.com/v1_1/search/' + queryStr1 + '?results=0:20&fields=item_name,brand_name,item_id,nf_calories&appId=6a998f38&appKey=349a62ce80525685d939c45cb5faf8ee';
 	  
 	  var jqxhr = $.ajax({
@@ -82,19 +62,7 @@ var FoodView = Backbone.View.extend({
 		if (event.key === 'Enter' || event.keyCode === 13 && input === document.activeElement) {
 			this.searchQueryStr();
 		}
-	},
+	}
+});
 
-//create main view
-// var FoodListView = Backbone.View.extend({
-//   initialize: function() {
-//     console.log('');    
-//   },
-//   render: function() {
-//     console.log('');    
-//   }  
-// });  
-	
-var foodView = new FoodView();  
-	
-})(jQuery);
-
+var foodView = new FoodView();
