@@ -1,5 +1,9 @@
+// js/views/app.js
+
+var app = app || {};
+
 //create model view
-var FoodView = Backbone.View.extend({
+app.AppView = Backbone.View.extend({
 	tagName: 'li',
 	el: $('body'),
 
@@ -18,8 +22,7 @@ var FoodView = Backbone.View.extend({
 	},
 
 	render: function() {
-		$(this.el).append("<form><input type='text' id='search' size='70' onkeypress='return noEnter(event)'><i class='ion ion-search'></i></form>");
-		$(this.el).append("<ul></ul>");
+//TODO
 	},
 
 	//helper func
@@ -33,7 +36,6 @@ var FoodView = Backbone.View.extend({
 	//the queryStr param should already have been cleaned up where spaces are replaced with %20
 	searchQueryStr: function() {
 		var queryStr = document.querySelector('#search').value;
-		console.log(queryStr);
 		var queryStr1 = this.cleanQueryStr(queryStr);
 	  var url = 'https://api.nutritionix.com/v1_1/search/' + queryStr1 + '?results=0:20&fields=item_name,brand_name,item_id,nf_calories&appId=6a998f38&appKey=349a62ce80525685d939c45cb5faf8ee';
 	  
@@ -64,5 +66,3 @@ var FoodView = Backbone.View.extend({
 		}
 	}
 });
-
-var foodView = new FoodView();
