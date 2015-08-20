@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-	<script src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js "></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.1/backbone-min.js"></script>
-	<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 	<script>
 		//prevents enter key press from submitting the form and refreshing the browser
 		function noEnter(event) {
@@ -19,7 +14,18 @@
 <title>Backbone.js project</title>
 </head>
 <body>
-		<script src="js/main.js"></script>
+	<script type="text/template" id="food-template">
+		<div class="food"> //or li
+			<%= name =%> <%= brandName %> <span class="right"><% calories %></span>
+		</div>
+
+	</script>
+	<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+	<script src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js "></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.2.1/backbone-min.js"></script>
+	<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+	<script src="js/views/app.js"></script>
 	
 </body>
 </html>
