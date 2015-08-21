@@ -8,7 +8,11 @@ var FoodList = Backbone.Collection.extend({
 
 	model: app.Food,
 
-	localStorage: new Backbone.LocalStorage('foods-backbone'),
+	//localStorage: new Backbone.LocalStorage('foods-backbone'),
+
+	all: function() {
+		return this;
+	},
 
 	//TODO need something like nextOrder, comparator
 	//track order in which items added to list (db guid is unordered chronologically)
