@@ -13,9 +13,10 @@ app.Food = Backbone.Model.extend({
 	},
 
 	initialize: function() {
-		console.log('');
+		//console.log('');
+	}, 
+	
+	add: function() {
+		this.save({})
 	}
-	//add: function() {
-		//this.save({})
-	//}
 });
