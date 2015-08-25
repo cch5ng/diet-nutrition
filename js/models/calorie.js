@@ -18,8 +18,13 @@ app.Calorie = Backbone.Model.extend({
 	initialize: function() {
 		//console.log('');
 	}, 
-	
-	add: function() {
-		this.save({})
+
+	add: function(localStoreObj) {
+		this.id = localStoreObj.id;
+		this.name = localStoreObj.name;
+		this.brandName = localStoreObj.brandName;
+		this.calories = localStoreObj.calories;
+		console.log('got here');
+		//this.save({})
 	}
 });
