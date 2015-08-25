@@ -40,6 +40,15 @@
 		</ul>
 	</script>
 
+	<!-- template for each food in localStorage item -->
+	<script type="text/template" id="localStoreTemplate" class="search-results">
+		<p>Total Calories: </p>
+
+		<ul class="food-item">
+			<li><%= name %> from <%= brandName %> at <%= calories %> calories</li>
+		</ul>
+	</script>
+
 	<script src="https://code.jquery.com/jquery-2.1.4.js"></script>
 	<!--<script src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
