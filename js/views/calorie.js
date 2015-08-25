@@ -9,13 +9,16 @@ app.CalorieView = Backbone.View.extend({
 	className: 'foodContainer',
 
 	//could reuse this because the model is the same...
-	//foodTemplate: _.template( document.querySelector('#foodTemplate').innerHTML ),
+	foodTemplate: _.template( document.querySelector('#foodTemplate').innerHTML ),
 
 	// events: {
 	// 	'click .foodContainer': 'add'
 	// },
 
 	initialize: function() {
+		//listening for collection changes
+		this.listenTo(app.Calories, 'add', this.addOneCal);
+		this.listenTo(app.Calories, 'reset', this.addAllCal);
 		this.listenTo(this.model, 'change', this.render);
 
 //TODO, here need to get data out of local storage?
@@ -28,7 +31,7 @@ app.CalorieView = Backbone.View.extend({
 	},
 
 	render: function() {
-		this.$el.html( this.foodTemplate( this.model.attributes ) );
+		this.$el.html( this.localStoreTemplate( this.model.attributes ) );
 		return this;
 	},
 
@@ -46,12 +49,17 @@ app.CalorieView = Backbone.View.extend({
 
 	//get array of objects for local storage key/value pairs
 	populateModels: function() {
+		var localStoreAr = [];
+
 		this.keysAr.forEach(function(key) {
 			var localStoreObj = localStorage.getItem('foods-backbone-' + key);
 			console.log(localStoreObj);
+			localStoreAr.push(localStoreObj);
 //TODO this line is breaking
 //			this.model.add();
 		});
+
+		app.Calories.add(localStoreAr);
 
 	}
 
