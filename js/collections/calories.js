@@ -29,4 +29,4 @@ var CalorieList = Backbone.Collection.extend({
 	}
 });
 
-app.calorieList = new CalorieList();
+app.Calories = new CalorieList();
