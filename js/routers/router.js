@@ -17,7 +17,15 @@ var Workspace = Backbone.Router.extend({
 
 	calories: function() {
 //TODO, implement CaloriesView and figure out it releates to existing food.js model
-		this.view = new app.CalorieView();
+//TODO need to clean up old view for food
+		this.loadView(app.CalorieView);
+	},
+
+	//http://mikeygee.com/blog/backbone.html
+	loadView: function(view) {
+		//this is abbrev way to check if this.view exists, then do this
+		this.view && this.view.remove();
+		this.view = view;
 	}
 
 });
