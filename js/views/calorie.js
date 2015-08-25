@@ -16,12 +16,15 @@ app.CalorieView = Backbone.View.extend({
 	// },
 
 	initialize: function() {
+		this.listenTo(this.model, 'change', this.render);
+
 //TODO, here need to get data out of local storage?
+//feel like this might be better done at the collection level than at the model/obj level but fix later
 		var keysStr = this.getKeys();
 		this.keysAr = keysStr.split(',');
-		console.log(this.keysAr);
+		//console.log(this.keysAr);
 
-		this.listenTo(this.model, 'change', this.render);
+		this.populateModels();
 	},
 
 	render: function() {
@@ -42,7 +45,13 @@ app.CalorieView = Backbone.View.extend({
 	},
 
 	//get array of objects for local storage key/value pairs
-	getCalories: function() {
+	populateModels: function() {
+		this.keysAr.forEach(function(key) {
+			var localStoreObj = localStorage.getItem('foods-backbone-' + key);
+			console.log(localStoreObj);
+//TODO this line is breaking
+//			this.model.add();
+		});
 
 	}
 
