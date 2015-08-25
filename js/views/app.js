@@ -124,7 +124,9 @@ app.AppView = Backbone.View.extend({
 			}
 		})
 
-		
+//TEST
+		app.FoodRouter.navigate('calories');
+		app.FoodRouter.calories();
 
 	}
 });
